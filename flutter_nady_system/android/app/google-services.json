@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "461124974835",
+    "project_id": "flutter-lady-system",
+    "storage_bucket": "flutter-lady-system.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:461124974835:android:3e06c7162dd1718bc15f86",
+        "android_client_info": {
+          "package_name": "com.example.flutter_nady_system"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "461124974835-hgaim3rsi3k2nn2q3affm8l6esrmqr5m.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.flutter_nady_system",
+            "certificate_hash": "c41a9fbdcc446e990b4d5b3d58fced5fbf8f9165"
+          }
+        },
+        {
+          "client_id": "461124974835-3a38d911etrm2psv5ks9ib67e7scuoqb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCtEQ27byhc0zkbE1dYqdFnOvYsM34-9n0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "461124974835-3a38d911etrm2psv5ks9ib67e7scuoqb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

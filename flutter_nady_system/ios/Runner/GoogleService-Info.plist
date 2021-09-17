@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>461124974835-qh34mqc5tjonjt099isc68s7hkma6l4m.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.461124974835-qh34mqc5tjonjt099isc68s7hkma6l4m</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>461124974835-hgaim3rsi3k2nn2q3affm8l6esrmqr5m.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDqe033XFZBMHf-PE4JJhoxWPtGCQx_I-E</string>
+	<key>GCM_SENDER_ID</key>
+	<string>461124974835</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.flutterNadySystem</string>
+	<key>PROJECT_ID</key>
+	<string>flutter-lady-system</string>
+	<key>STORAGE_BUCKET</key>
+	<string>flutter-lady-system.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:461124974835:ios:4fc45131d20087a7c15f86</string>
+</dict>
+</plist>
