@@ -5,17 +5,17 @@ import '../app/index.dart';
 part './app_routes.dart';
 
 class AppPages {
-  static String init = Routes.splash;
+  static String init = Routes.splashPage;
 
   static GetPage notFoundRoute = GetPage(
-    name: Routes.notFound,
+    name: Routes.notFoundPage,
     page: () => const NotFound(),
     title: 'NotFound',
   );
 
   static final pages = [
     GetPage(
-      name: Routes.splash,
+      name: Routes.splashPage,
       page: () => const SplashPage(),
       title: 'SplashPage',
       binding: AppBinding(),
@@ -27,7 +27,7 @@ class AppPages {
       binding: AuthBinding(),
     ),
     GetPage(
-      name: Routes.logPage,
+      name: Routes.homePage,
       page: () => const HomePage(),
       title: 'HomePage',
     ),

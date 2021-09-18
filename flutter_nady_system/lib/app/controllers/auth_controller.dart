@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -20,10 +22,8 @@ class AuthController extends GetxController {
     _user.bindStream(_auth.authStateChanges());
     FirebaseAuth.instance.authStateChanges().listen((User? user) {
       if (user == null) {
-        // ignore: avoid_print
         print('User is currently signed out!');
       } else {
-        // ignore: avoid_print
         print('User is signed in!');
       }
     });
@@ -40,7 +40,6 @@ class AuthController extends GetxController {
 
   Future<void> signInWithGoogle() async {
     GoogleSignInAccount? gooleAcount = await _googleSignIn.signIn();
-    // ignore: avoid_print
     print('gooleAcoount : $gooleAcount');
     GoogleSignInAuthentication googleSignInAuthentication =
         await gooleAcount!.authentication;
@@ -50,7 +49,6 @@ class AuthController extends GetxController {
     );
     UserCredential userCredential =
         await _auth.signInWithCredential(credential);
-    // ignore: avoid_print
     print('UserCredential : $userCredential');
   }
 
@@ -67,7 +65,6 @@ class AuthController extends GetxController {
 
     if (result.status == LoginStatus.success) {
       AccessToken? accessToken = result.accessToken;
-      // ignore: avoid_print
       print('faceBook accessToken : $accessToken');
       // ignore: unused_local_variable
       final userData = await FacebookAuth.instance.getUserData();
@@ -76,8 +73,8 @@ class AuthController extends GetxController {
       // Create a credential from the access token
       final OAuthCredential credential =
           FacebookAuthProvider.credential(result.accessToken!.token);
+      print("SHADY Credential : $credential");
       UserCredential user = await _auth.signInWithCredential(credential);
-      // ignore: avoid_print
       print('facebook login : $user');
       return user;
     } else {
@@ -85,8 +82,22 @@ class AuthController extends GetxController {
     }
   }
 
-  Future<void> faceBokLogOut() async {
-    await _facebookAuth.logOut();
+  Future<void> logOut() async {
+    try {
+      await _googleSignIn.signOut();
+    } on Exception catch (e) {
+      print("Google not Sign In : $e");
+    }
+    try {
+      await _facebookAuth.logOut();
+    } on Exception catch (e) {
+      print("FaceBook not Sign In : $e");
+    }
+    try {
+      await _auth.signOut();
+    } on FirebaseException catch (e) {
+      print("FireBase not Sign In : $e");
+    }
     // _accessToken = null;
     // _userData = null;
   }
@@ -95,7 +106,6 @@ class AuthController extends GetxController {
     try {
       await _auth
           .signInWithEmailAndPassword(email: email!, password: password!)
-          // ignore: avoid_print
           .then((value) => print(value));
       // Get.offAll(HomeView());
     } on FirebaseException catch (e) {
@@ -112,7 +122,6 @@ class AuthController extends GetxController {
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
       } else if (e.code == 'email-already-in-use') {
-        // ignore: avoid_print
         print('The account already exists for that email.');
       }
     }

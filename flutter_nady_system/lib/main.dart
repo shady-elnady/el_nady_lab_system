@@ -44,7 +44,7 @@ void main() async {
       fallbackLocale: const Locale('en', 'US'),
       defaultTransition: Transition.fade,
       initialBinding: AppBinding(),
-      initialRoute: Routes.splash,
+      initialRoute: Routes.splashPage,
       getPages: AppPages.pages,
       unknownRoute: AppPages.notFoundRoute,
     ),

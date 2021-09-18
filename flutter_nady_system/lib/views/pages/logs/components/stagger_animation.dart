@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application/routes/app_pages.dart';
-import 'dart:async';
-
+import 'package:flutter_nady_system/routes/app_pages.dart';
 import 'package:get/get.dart';
+import 'dart:async';
 
 class StaggerAnimation extends StatelessWidget {
   StaggerAnimation({Key? key, required this.buttonController})
@@ -122,7 +121,7 @@ class StaggerAnimation extends StatelessWidget {
   Widget build(BuildContext context) {
     buttonController.addListener(() {
       if (buttonController.isCompleted) {
-        Get.offNamed(Routes.home.nameToRoute());
+        Get.offNamed(Routes.homePage);
       }
     });
     return AnimatedBuilder(

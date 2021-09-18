@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_nady_system/app/index.dart';
+import 'package:get/get.dart';
 
-import 'package:flutter_application/utils/index.dart';
-import 'package:flutter_application/views/widgets/action_button.dart';
+import 'action_button.dart';
 
-class LogInComponent extends StatelessWidget {
+class LogInComponent extends GetWidget<AuthController> {
   final Function onSignUpSelected;
 
   const LogInComponent({
@@ -70,8 +71,8 @@ class LogInComponent extends StatelessWidget {
                       // ignore: sized_box_for_whitespace
                       Container(
                         width: 30,
-                        child: const Divider(
-                          color: Global.kPrimaryColor,
+                        child: Divider(
+                          color: Theme.of(context).primaryColor,
                           thickness: 2,
                         ),
                       ),
@@ -102,7 +103,10 @@ class LogInComponent extends StatelessWidget {
                       const SizedBox(
                         height: 60,
                       ),
-                      actionButton("Log In"),
+                      actionButton(
+                        "Log In",
+                        fun: () => controller.signInWithGoogle(),
+                      ),
                       const SizedBox(
                         height: 30,
                       ),
@@ -126,10 +130,10 @@ class LogInComponent extends StatelessWidget {
                             child: Row(
                               // ignore: prefer_const_literals_to_create_immutables
                               children: [
-                                const Text(
+                                Text(
                                   "Sign Up",
                                   style: TextStyle(
-                                    color: Global.kPrimaryColor,
+                                    color: Theme.of(context).primaryColor,
                                     fontSize: 14,
                                     fontWeight: FontWeight.bold,
                                   ),
@@ -137,9 +141,9 @@ class LogInComponent extends StatelessWidget {
                                 const SizedBox(
                                   width: 3,
                                 ),
-                                const Icon(
+                                Icon(
                                   Icons.arrow_forward_ios,
-                                  color: Global.kPrimaryColor,
+                                  color: Theme.of(context).primaryColor,
                                   size: 15,
                                 ),
                               ],

@@ -4,19 +4,17 @@ import 'package:flutter/animation.dart';
 
 import 'package:flutter/services.dart';
 import 'package:flutter/scheduler.dart' show timeDilation;
-import 'package:flutter_application/utils/global.dart';
 
 import 'components/login.dart';
 import 'components/signup.dart';
 
 class LogPage extends StatefulWidget {
-  const LogAnimationPage({Key? key}) : super(key: key);
+  const LogPage({Key? key}) : super(key: key);
   @override
-  LogAnimationPageState createState() => LogAnimationPageState();
+  LogPageState createState() => LogPageState();
 }
 
-class LogAnimationPageState extends State<LogAnimationPage>
-    with TickerProviderStateMixin {
+class LogPageState extends State<LogPage> with TickerProviderStateMixin {
   Option selectedOption = Option.logIn;
 
   @override
@@ -42,7 +40,7 @@ class LogAnimationPageState extends State<LogAnimationPage>
                 Container(
                   height: double.infinity,
                   width: size.width / 2,
-                  color: Global.kPrimaryColor,
+                  color: Theme.of(context).primaryColor,
                 ),
                 Container(
                   height: double.infinity,
@@ -182,4 +180,10 @@ class LogAnimationPageState extends State<LogAnimationPage>
       ),
     );
   }
+}
+
+enum Option {
+  logIn,
+  signUp,
+  success,
 }

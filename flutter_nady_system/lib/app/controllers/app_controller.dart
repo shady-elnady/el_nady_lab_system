@@ -1,34 +1,34 @@
+// ignore_for_file: unnecessary_overrides
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class AppController extends GetxController {
-  late RxInt _width;
-  late RxInt _height;
+  late RxDouble _width;
+  late RxDouble _height;
 
   set size(Size size) {
-    _width.value = size.width as int;
-    _height.value = size.height as int;
+    _width.value = size.width;
+    _height.value = size.height;
+    // ignore: avoid_print
+    print("Width : $_width , Height : $_height");
   }
 
-  get width => _width.value;
+  double get width => _width.value;
 
-  get height => _height.value;
+  double get height => _height.value;
 
   @override
   void onInit() {
-    //??TODO: implement onInit
     super.onInit();
   }
 
   @override
   void onReady() {
-    //!!TODO: implement onReady
     super.onReady();
   }
 
   @override
   void onClose() {
-    //!!TODO: implement onClose
     super.onClose();
   }
 }

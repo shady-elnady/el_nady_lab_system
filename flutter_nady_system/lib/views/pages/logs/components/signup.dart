@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_application/utils/index.dart';
-import '../../../widgets/action_button.dart';
+import 'action_button.dart';
 
 class SignUpComponent extends StatelessWidget {
   final Function onLogInSelected;
@@ -69,8 +68,8 @@ class SignUpComponent extends StatelessWidget {
                       // ignore: sized_box_for_whitespace
                       Container(
                         width: 30,
-                        child: const Divider(
-                          color: Global.kPrimaryColor,
+                        child: Divider(
+                          color: Theme.of(context).primaryColor,
                           thickness: 2,
                         ),
                       ),
@@ -135,21 +134,21 @@ class SignUpComponent extends StatelessWidget {
                               onLogInSelected();
                             },
                             child: Row(
-                              children: const <Widget>[
+                              children: <Widget>[
                                 Text(
                                   "Log In",
                                   style: TextStyle(
-                                    color: Global.kPrimaryColor,
+                                    color: Theme.of(context).primaryColor,
                                     fontSize: 14,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   width: 8,
                                 ),
                                 Icon(
                                   Icons.arrow_forward_ios,
-                                  color: Global.kPrimaryColor,
+                                  color: Theme.of(context).primaryColor,
                                   size: 15,
                                 ),
                               ],

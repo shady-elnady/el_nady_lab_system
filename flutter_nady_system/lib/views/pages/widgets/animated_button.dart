@@ -67,7 +67,7 @@ class _AnimatedButtonState extends State<AnimatedButton>
         Tween<double>(begin: 1.0, end: 32.0).animate(_scale2Controller)
           ..addStatusListener((status) {
             if (status == AnimationStatus.completed) {
-              Get.offNamed(Routes.homePage);
+              Get.offNamed(widget.routeName ?? Routes.logPage); //?TODO
             }
           });
   }
