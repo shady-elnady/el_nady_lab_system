@@ -11,12 +11,20 @@ class NotFound extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('${Get.routing.current} Page Not Found',
-                style: const TextStyle(fontSize: 30)),
+            Text(
+              '${Get.routing.current} Page Not Found',
+              style: const TextStyle(
+                fontSize: 30,
+              ),
+            ),
             const SizedBox(height: 25),
             ElevatedButton(
-              child: const Text('Go To Log In Page',
-                  style: TextStyle(fontSize: 30)),
+              child: const Text(
+                'Go To Log In Page',
+                style: TextStyle(
+                  fontSize: 30,
+                ),
+              ),
               onPressed: () => Get.back(),
             )
           ],

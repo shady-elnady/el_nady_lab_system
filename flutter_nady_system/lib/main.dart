@@ -33,18 +33,20 @@ void main() async {
 
   // await initServices(); /// AWAIT SERVICES INITIALIZATION.
 
-  runApp(GetMaterialApp(
-    debugShowCheckedModeBanner: false,
-    title: "Application",
-    translations: Translation(),
-    theme: appThemeData,
-    darkTheme: darkThemeData,
-    locale: const Locale('en', 'US'),
-    fallbackLocale: const Locale('en', 'US'),
-    defaultTransition: Transition.fade,
-    initialBinding: AppBinding(),
-    initialRoute: Routes.splash,
-    getPages: AppPages.pages,
-    unknownRoute: AppPages.notFoundRoute,
-  ));
+  runApp(
+    GetMaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: "El Nady System",
+      translations: Translation(),
+      theme: appThemeData,
+      darkTheme: darkThemeData,
+      locale: const Locale('en', 'US'),
+      fallbackLocale: const Locale('en', 'US'),
+      defaultTransition: Transition.fade,
+      initialBinding: AppBinding(),
+      initialRoute: Routes.splash,
+      getPages: AppPages.pages,
+      unknownRoute: AppPages.notFoundRoute,
+    ),
+  );
 }

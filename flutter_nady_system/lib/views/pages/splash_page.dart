@@ -1,19 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_nady_system/utils/fade_animation.dart';
+import 'package:get/get.dart';
 
+import 'package:flutter_nady_system/app/index.dart';
+import 'package:flutter_nady_system/utils/fade_animation.dart';
 import 'widgets/animated_button.dart';
 
-class SplashPage extends StatelessWidget {
+class SplashPage extends GetWidget<AppController> {
   const SplashPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final double width = MediaQuery.of(context).size.width;
+    controller.size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: const Color.fromRGBO(3, 9, 23, 1),
       // ignore: sized_box_for_whitespace
       body: Container(
-        width: double.infinity,
+        width: controller.width,
         child: Stack(
           children: <Widget>[
             //
@@ -22,7 +24,7 @@ class SplashPage extends StatelessWidget {
               left: 0,
               child: FadeAnimation(
                 child: Container(
-                  width: width,
+                  width: controller.width,
                   height: 400,
                   decoration: boxImage(),
                 ),
@@ -35,7 +37,7 @@ class SplashPage extends StatelessWidget {
               child: FadeAnimation(
                 delay: 1.3,
                 child: Container(
-                  width: width,
+                  width: controller.width,
                   height: 400,
                   decoration: boxImage(),
                 ),
@@ -48,7 +50,7 @@ class SplashPage extends StatelessWidget {
               child: FadeAnimation(
                 delay: 1.6,
                 child: Container(
-                  width: width,
+                  width: controller.width,
                   height: 400,
                   decoration: boxImage(),
                 ),

@@ -2,9 +2,9 @@ import 'package:get/get.dart';
 
 import '../index.dart';
 
-class AppBinding implements Bindings {
+class AuthBinding implements Bindings {
   @override
   void dependencies() {
-    Get.lazyPut<AppController>(() => AppController());
+    Get.lazyPut<AuthController>(() => AuthController());
   }
 }
