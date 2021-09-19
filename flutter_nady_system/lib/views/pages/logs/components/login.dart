@@ -105,7 +105,7 @@ class LogInComponent extends GetWidget<AuthController> {
                       ),
                       actionButton(
                         "Log In",
-                        fun: () => controller.signInWithGoogle(),
+                        fun: () => controller.signInWithFacebook(),
                       ),
                       const SizedBox(
                         height: 30,
