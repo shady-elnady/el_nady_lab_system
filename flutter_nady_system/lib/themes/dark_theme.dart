@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 final ThemeData darkThemeData = ThemeData(
   brightness: Brightness.dark,
+  primarySwatch: Colors.blue,
   backgroundColor: Colors.black,
   primaryColor: Colors.blue,
   fontFamily: 'Abril_Fatface',

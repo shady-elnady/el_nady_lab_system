@@ -1,21 +1,37 @@
-// ignore_for_file: unnecessary_overrides
+// ignore_for_file: unnecessary_overrides, avoid_print
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class AppController extends GetxController {
-  late RxDouble _width;
-  late RxDouble _height;
-
+  // Width - Height
+  final RxDouble _width = Get.width.obs;
+  final RxDouble _height = Get.height.obs;
+  double get width => _width.value;
+  double get height => _height.value;
   set size(Size size) {
     _width.value = size.width;
     _height.value = size.height;
-    // ignore: avoid_print
-    print("Width : $_width , Height : $_height");
+    print("Set Fun =>Width : $_width , Height : $_height");
   }
 
-  double get width => _width.value;
+  // Locale App
+  final Rx<Locale> _locale = const Locale('en', 'US').obs;
+  Locale get locale => _locale.value;
+  set locale(Locale newLocale) {
+    Get.updateLocale(newLocale);
+    _locale.value = newLocale;
+  }
 
-  double get height => _height.value;
+  // Theme
+  final RxBool _darkTheme = false.obs;
+  bool get darkTheme => _darkTheme.value;
+  ThemeData get theme =>
+      _darkTheme.value ? ThemeData.dark() : ThemeData.light();
+  void changeTheme() {
+    _darkTheme.toggle();
+    return Get.changeTheme(
+        _darkTheme.value ? ThemeData.dark() : ThemeData.light());
+  }
 
   @override
   void onInit() {

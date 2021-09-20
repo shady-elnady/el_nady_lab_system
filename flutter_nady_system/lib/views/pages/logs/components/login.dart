@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_nady_system/app/index.dart';
+import 'package:flutter_nady_system/routes/app_pages.dart';
 import 'package:get/get.dart';
 
 import 'action_button.dart';
@@ -105,7 +106,8 @@ class LogInComponent extends GetWidget<AuthController> {
                       ),
                       actionButton(
                         "Log In",
-                        fun: () => controller.signInWithFacebook(),
+                        fun: () => Get.toNamed(Routes.neumorphicEx),
+                        //fun: () => controller.signInWithFacebook(),
                       ),
                       const SizedBox(
                         height: 30,

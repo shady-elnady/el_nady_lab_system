@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 final ThemeData appThemeData = ThemeData(
   brightness: Brightness.light,
+  primarySwatch: Colors.green,
   backgroundColor: Colors.white,
   primaryColor: Colors.green,
   fontFamily: 'Abril_Fatface',

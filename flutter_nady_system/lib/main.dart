@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:get/get.dart';
 
 import 'app/index.dart';
@@ -21,15 +23,20 @@ void main() async {
   );
 
   if (!GetPlatform.isDesktop) await Firebase.initializeApp();
-  // if (kIsWeb) {
-  //   // initialiaze the facebook javascript SDK
-  //   FacebookAuth.i.webInitialize(
-  //     appId: "474013263826506", //<-- YOUR APP_ID
-  //     cookie: true,
-  //     xfbml: true,
-  //     version: "v9.0",
-  //   );
-  // }
+  // check if is running on Web
+  if (kIsWeb) {
+    // initialiaze the facebook javascript SDK
+    FacebookAuth.i.webInitialize(
+      appId: "345531593739834", //<-- YOUR APP_ID
+      cookie: true,
+      xfbml: true,
+      version: "v9.0",
+    );
+    // ignore: avoid_print
+    print(
+      "FacebookAuth.i.isWebSdkInitialized : ${FacebookAuth.i.isWebSdkInitialized}",
+    );
+  }
 
   // await initServices(); /// AWAIT SERVICES INITIALIZATION.
 
@@ -38,9 +45,9 @@ void main() async {
       debugShowCheckedModeBanner: false,
       title: "El Nady System",
       translations: Translation(),
-      theme: appThemeData,
+      theme: AppController().theme,
       darkTheme: darkThemeData,
-      locale: const Locale('en', 'US'),
+      locale: AppController().locale,
       fallbackLocale: const Locale('en', 'US'),
       defaultTransition: Transition.fade,
       initialBinding: AppBinding(),

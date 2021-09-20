@@ -31,6 +31,11 @@ class AppPages {
       page: () => const HomePage(),
       title: 'HomePage',
     ),
+    GetPage(
+      name: Routes.neumorphicEx,
+      page: () => const NeumorphicEx(),
+      title: 'HomePage',
+    ),
   ];
 }
 

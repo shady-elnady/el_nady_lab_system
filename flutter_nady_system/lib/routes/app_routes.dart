@@ -5,6 +5,7 @@ abstract class Routes {
   static final splashPage = 'SplashPage'.nameToRoute();
   static final logPage = 'LogPage'.nameToRoute();
   static final homePage = 'HomePage'.nameToRoute();
+  static final neumorphicEx = 'NeumorphicEx'.nameToRoute();
 }
 
 extension RoutesExtension on String {
