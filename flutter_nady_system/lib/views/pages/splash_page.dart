@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_nady_system/app/index.dart';
-
-import 'package:flutter_nady_system/utils/fade_animation.dart';
 import 'package:get/get.dart';
-import 'widgets/animated_button.dart';
+
+import '../../app/index.dart';
+import 'utils/index.dart';
+import 'widgets/index.dart';
 
 class SplashPage extends GetWidget<AppController> {
   const SplashPage({Key? key}) : super(key: key);
@@ -11,15 +11,15 @@ class SplashPage extends GetWidget<AppController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: const Color.fromRGBO(3, 9, 23, 1),
       body: Container(
-        //width: controller.width,
+        width: double.infinity,
+        height: double.infinity,
         decoration: const BoxDecoration(
           color: Colors.transparent,
         ),
         child: Stack(
           children: <Widget>[
-            //Theme Icon
+            // Theme Icon
             Positioned(
               top: 5,
               right: 5,
@@ -36,99 +36,118 @@ class SplashPage extends GetWidget<AppController> {
               ),
             ),
             //
-            // Positioned(
-            //   top: -50,
-            //   left: 0,
-            //   child: FadeAnimation(
-            //     child: Container(
-            //       //width: controller.width,
-            //       height: 400,
-            //       decoration: boxImage(),
-            //     ),
-            //   ),
-            // ),
-            // //
-            // Positioned(
-            //   top: -100,
-            //   left: 0,
-            //   child: FadeAnimation(
-            //     delay: 1.3,
-            //     child: Container(
-            //       //width: controller.width,
-            //       height: 400,
-            //       decoration: boxImage(),
-            //     ),
-            //   ),
-            // ),
-            // //
-            // Positioned(
-            //   top: -150,
-            //   left: 0,
-            //   child: FadeAnimation(
-            //     delay: 1.6,
-            //     child: Container(
-            //       //width: controller.width,
-            //       height: 400,
-            //       decoration: boxImage(),
-            //     ),
-            //   ),
-            // ),
-            // //
-            Container(
-              padding: const EdgeInsets.all(20.0),
+
+            // Languages Icon
+            const Positioned(
+              top: 5,
+              left: 5,
+              child: LanguageMenu(),
+            ),
+            //
+
+            //
+            Positioned(
+              left: 0,
+              right: 0,
+              top: controller.height / 2 - 350,
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: const <Widget>[
-                  FadeAnimation(
-                    child: Text(
-                      "Welcome",
-                      style: TextStyle(
-                        //color: Colors.white,
-                        fontSize: 50,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Container(
+                    height: 350,
+                    width: 350,
+                    decoration: BoxDecoration(
+                        color: const Color(0xFFe6ebf2),
+                        shape: BoxShape.circle,
+                        boxShadow: [
+                          BoxShadow(
+                              offset: const Offset(-3, -3),
+                              blurRadius: 3.0,
+                              color: Colors.white.withOpacity(.7)),
+                          BoxShadow(
+                              offset: const Offset(3, 3),
+                              blurRadius: 3.0,
+                              color: Colors.black.withOpacity(.15))
+                        ]),
+                    child: Container(
+                      width: 220,
+                      height: 220,
+                      decoration: const BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Color(0xFFe6ebf2),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(5.0),
+                        child: Container(
+                          decoration: BoxDecoration(
+                              color: const Color(0xFFe6ebf2),
+                              shape: BoxShape.circle,
+                              boxShadow: [
+                                BoxShadow(
+                                    offset: const Offset(-2, -2),
+                                    blurRadius: 2.0,
+                                    color: Colors.black.withOpacity(.3)),
+                                BoxShadow(
+                                    offset: const Offset(2, 2),
+                                    blurRadius: 2.0,
+                                    color: Colors.white.withOpacity(.7)),
+                              ]),
+                          child: Padding(
+                            padding: const EdgeInsets.all(10.0),
+                            child: Container(
+                              decoration: const BoxDecoration(
+                                  color: Color(0xFFe6ebf2),
+                                  shape: BoxShape.circle),
+                              child: Padding(
+                                padding: const EdgeInsets.all(3.0),
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                      color: const Color(0xFFFFFFFF),
+                                      shape: BoxShape.circle,
+                                      boxShadow: [
+                                        BoxShadow(
+                                            offset: const Offset(-2, -2),
+                                            blurRadius: 2.0,
+                                            color:
+                                                Colors.black.withOpacity(.3)),
+                                        BoxShadow(
+                                            offset: const Offset(2, 2),
+                                            blurRadius: 2.0,
+                                            color:
+                                                Colors.white.withOpacity(.7)),
+                                      ]),
+                                  child: Center(
+                                    child: logoSVG(),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
                       ),
                     ),
                   ),
-                  SizedBox(
-                    height: 15,
+                  const SizedBox(
+                    height: 40,
                   ),
-                  FadeAnimation(
-                    delay: 1.3,
-                    child: Text(
-                      "We promis that you'll have the most \nfuss-free time with us ever.",
-                      style: TextStyle(
-                        //color: Colors.white.withOpacity(.7),
-                        height: 1.4,
-                        fontSize: 20,
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 180,
-                  ),
-                  FadeAnimation(
+                  const FadeAnimation(
                     delay: 1.6,
                     child: AnimatedButton(),
                   ),
-                  SizedBox(
-                    height: 60,
+                  FadeAnimation(
+                    child: LocaleKeys.wellcome.translation(),
                   ),
                 ],
               ),
-            )
+            ),
+            const SizedBox(
+              height: 30.0,
+            ),
+            //
           ],
         ),
       ),
     );
   }
 }
-
-BoxDecoration boxImage({
-  String image = 'assets/images/one.png',
-}) =>
-    BoxDecoration(
-      image: DecorationImage(
-        image: AssetImage(image),
-        fit: BoxFit.cover,
-      ),
-    );

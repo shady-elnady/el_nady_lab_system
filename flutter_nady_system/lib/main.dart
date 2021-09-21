@@ -8,7 +8,7 @@ import 'package:get/get.dart';
 import 'app/index.dart';
 import 'routes/app_pages.dart';
 import 'themes/index.dart';
-import 'utils/translation.dart';
+import 'tools/translation.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -45,7 +45,7 @@ void main() async {
       debugShowCheckedModeBanner: false,
       title: "El Nady System",
       translations: Translation(),
-      theme: AppController().theme,
+      theme: appThemeData,
       darkTheme: darkThemeData,
       locale: AppController().locale,
       fallbackLocale: const Locale('en', 'US'),

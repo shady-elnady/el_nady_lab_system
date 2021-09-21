@@ -3,10 +3,10 @@
 import 'package:flutter/material.dart';
 import 'package:fluttericon/font_awesome_icons.dart';
 
-import 'design.dart';
+import '../widgets/neumorphic_design.dart';
 
 class NeumorphicEx extends StatelessWidget {
-  final Design? design;
+  final NeumorphicDesign? design;
 
   const NeumorphicEx({Key? key, this.design}) : super(key: key);
   @override
@@ -39,7 +39,7 @@ class NeumorphicEx extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
-                      Design(
+                      NeumorphicDesign(
                         height1: 55,
                         width1: 55,
                         color: const Color(0xFFe6ebf2),
@@ -49,7 +49,7 @@ class NeumorphicEx extends StatelessWidget {
                         iconData: Icons.wifi,
                         iconSize: 30.0,
                       ),
-                      Design(
+                      NeumorphicDesign(
                         height1: 55,
                         width1: 55,
                         color: Color(0xFFe6ebf2),
@@ -59,7 +59,7 @@ class NeumorphicEx extends StatelessWidget {
                         iconData: FontAwesome.lightbulb,
                         iconSize: 30.0,
                       ),
-                      Design(
+                      NeumorphicDesign(
                         height1: 55,
                         width1: 55,
                         color: Color(0xFFe6ebf2),
@@ -69,7 +69,7 @@ class NeumorphicEx extends StatelessWidget {
                         iconData: Icons.home,
                         iconSize: 30.0,
                       ),
-                      Design(
+                      NeumorphicDesign(
                         height1: 55,
                         width1: 55,
                         color: Color(0xFFe6ebf2),

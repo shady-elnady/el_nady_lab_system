@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class Design extends StatefulWidget {
+class NeumorphicDesign extends StatefulWidget {
   final Color? color;
   final double bLevel;
   final Offset offsetW;
@@ -10,7 +10,7 @@ class Design extends StatefulWidget {
   final IconData? iconData;
   final double? iconSize;
 
-  const Design(
+  const NeumorphicDesign(
       {Key? key,
       this.color,
       required this.offsetW,
@@ -22,10 +22,10 @@ class Design extends StatefulWidget {
       this.iconSize})
       : super(key: key);
   @override
-  _DesignState createState() => _DesignState();
+  _NeumorphicDesignState createState() => _NeumorphicDesignState();
 }
 
-class _DesignState extends State<Design> {
+class _NeumorphicDesignState extends State<NeumorphicDesign> {
   bool isPressed = false;
 
   void onPressedUp(PointerUpEvent event) {
