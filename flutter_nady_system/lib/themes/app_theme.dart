@@ -1,30 +1,31 @@
 import 'package:flutter/material.dart';
 
-final ThemeData appThemeData = ThemeData(
+import '../views/pages/utils/global.dart';
+part './dark_theme.dart';
+
+final ThemeData lightThemeData = ThemeData(
   brightness: Brightness.light,
-  primarySwatch: LightThemeColors.materialGreen,
-  primaryColor: LightThemeColors.green,
-  backgroundColor: LightThemeColors.bGColor,
-  canvasColor: LightThemeColors.bGColor,
-  hoverColor: LightThemeColors.hoverColor,
-  cardColor: LightThemeColors.cardColor,
-  fontFamily: 'Abril_Fatface',
-  textTheme: const TextTheme(
-    headline1: TextStyle(
-      fontSize: 72.0,
-      fontWeight: FontWeight.bold,
-      color: LightThemeColors.materialGreen,
-    ),
+  primarySwatch: Colors.blue,
+  primaryColor: const Color(0xFF0000FF),
+  secondaryHeaderColor: const Color(0xFFFF0000),
+  backgroundColor: const Color(0xFFe6ebf2),
+  canvasColor: const Color(0xFFe6ebf2),
+  hoverColor: const Color(0xFF00FF00),
+  cardColor: const Color(0xFFFFFFFF),
+  fontFamily: Fonts.abrilFatface,
+  colorScheme: const ColorScheme(
+    primary: Color(0xFF0000FF),
+    primaryVariant: Color(0xFF000000),
+    secondary: Color(0xFF00FF00),
+    secondaryVariant: Color(0xFF00FF00),
+    surface: Color(0xFFFFFFFF),
+    background: Color(0xFFe6ebf2),
+    error: Color(0xFFFF0000),
+    onPrimary: Color(0xFF00FF00),
+    onSecondary: Color(0xFFF38E0B),
+    onSurface: Color(0xFFE9E51D),
+    onBackground: Color(0xFF000000),
+    onError: Color(0xFFFF0000),
+    brightness: Brightness.light,
   ),
 );
-
-class LightThemeColors {
-  static const Color bGColor = Color(0xFFe6ebf2); //rgba(00, 256, 255, 256)
-  static const Color hoverColor = Color(0xFF0000FF); //rgba(00, 256, 255, 256)
-  static const Color textColor = Color(0xFFff0000); //rgba(00, 00, 00, 256)
-  static const Color borderColor = Color(0xFF0000FF); //rgba(00, 256, 255, 256)
-  static const Color cardColor = Color(0xFF000000); //rgba(00, 00, 00, 256)
-  static const Color green = Color(0xFF00FF00); //rgba(00, 256, 255, 256)
-  static const MaterialColor materialGreen =
-      Colors.green; //rgba(00, 256, 255, 256)
-}

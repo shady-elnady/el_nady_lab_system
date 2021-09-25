@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'package:flutter_nady_system/app/index.dart';
+import '../utils/index.dart';
+import '../../../app/index.dart';
 
 class LanguageMenu extends GetWidget<AppController> {
   const LanguageMenu({Key? key}) : super(key: key);
@@ -9,53 +10,55 @@ class LanguageMenu extends GetWidget<AppController> {
   @override
   Widget build(BuildContext context) {
     return PopupMenuButton<Locale>(
-        color: Colors.black,
-        child: const Icon(Icons.menu),
-        itemBuilder: (context) => [
-              ...languages.map(
-                (lang) => PopupMenuItem<Locale>(
-                  value: lang.locale,
-                  child: Row(
-                    children: [
-                      Text(lang.imoje),
-                      const SizedBox(width: 10),
-                      Text(lang.name),
-                    ],
+      color: Theme.of(context).canvasColor,
+      child: Icon(
+        Icons.language,
+        color: Theme.of(context).primaryColor,
+      ),
+      itemBuilder: (context) => [
+        ...languages.map(
+          (lang) => PopupMenuItem<Locale>(
+            value: lang.locale,
+            child: Row(
+              children: [
+                Text(
+                  lang.imoji,
+                  style: const TextStyle(
+                    fontFamily: Fonts.notoColorEmoji,
                   ),
                 ),
-              ),
-              //const PopupMenuDivider(),
-            ],
-        // ignore: avoid_print
-        onSelected: (i) => controller.locale = i);
+                const SizedBox(width: 10),
+                Text(
+                  lang.name,
+                  style: TextStyle(color: Theme.of(context).primaryColor),
+                ),
+              ],
+            ),
+          ),
+        ),
+        const PopupMenuDivider(
+          height: 10,
+        ),
+      ],
+      onSelected: (i) => controller.locale = i,
+    );
   }
 }
 
 List<Language> languages = [
   Language(
     name: "English",
-    locale: const Locale("en_US"),
-    imoje: "🇺🇸",
+    locale: english,
+    imoji: "🇺🇸",
   ),
   Language(
     name: "عربى",
-    locale: const Locale("ar_AR"),
-    imoje: "🇾🇪",
+    locale: arabic,
+    imoji: "🇾🇪",
   ),
   Language(
     name: "Française",
-    locale: const Locale("fr_FR"),
-    imoje: "🇫🇷",
+    locale: frensh,
+    imoji: "🇫🇷",
   ),
 ];
-
-class Language {
-  String name;
-  Locale locale;
-  String imoje;
-  Language({
-    required this.name,
-    required this.locale,
-    required this.imoje,
-  });
-}

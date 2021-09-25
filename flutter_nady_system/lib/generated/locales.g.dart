@@ -27,6 +27,8 @@ class LocaleKeys {
   static const e_mail = 'e_mail';
   static const title = 'title';
   static const wellcome = 'wellcome';
+  static const nadyLab = 'nadyLab';
+  static const shady = 'shady';
 }
 
 class Locales {
@@ -46,6 +48,8 @@ class Locales {
     'e_mail': 'E-mail',
     'title': 'Title',
     'wellcome': 'WellCome',
+    'nadyLab': 'El Nady Lab',
+    'shady': 'Dr. / Shady El Nady',
   };
   static const ar_AR = {
     'sign_In': 'دخول',
@@ -63,6 +67,8 @@ class Locales {
     'e_mail': 'الإيميل',
     'title': 'اللقب',
     'wellcome': 'مرحبا',
+    'nadyLab': 'معمـل النـادى',
+    'shady': 'د./ شـادى النـادى',
   };
   static const fr_FR = {
     'sign_In': 'S\'identifier',
@@ -80,5 +86,7 @@ class Locales {
     'e_mail': 'E-mail',
     'title': 'Title',
     'wellcome': 'Bienvenu',
+    'nadyLab': 'Laboratoire El Nady',
+    'shady': 'Dr. / Shady El Nady',
   };
 }

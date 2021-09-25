@@ -11,114 +11,161 @@ class SplashPage extends GetWidget<AppController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        width: double.infinity,
-        height: double.infinity,
-        decoration: const BoxDecoration(
-          color: Colors.transparent,
-        ),
-        child: Stack(
-          children: <Widget>[
-            // Theme Icon
-            Positioned(
-              top: 5,
-              right: 5,
-              child: IconButton(
-                icon: Obx(
-                  () => Icon(
-                    controller.darkTheme ? Icons.tungsten : Icons.light,
-                    //color: Colors.red,
+      body: SafeArea(
+        child: Directionality(
+          textDirection: controller.locale == arabic
+              ? TextDirection.rtl
+              : TextDirection.ltr,
+          child: Container(
+            width: double.infinity,
+            height: double.infinity,
+            decoration: const BoxDecoration(
+              color: Colors.transparent,
+            ),
+            child: Stack(
+              children: <Widget>[
+                // Theme Icon
+                Positioned(
+                  top: 5,
+                  right: 5,
+                  child: IconButton(
+                    icon: Obx(
+                      () => Icon(
+                        controller.darkTheme ? Icons.tungsten : Icons.light,
+                        color: Theme.of(context).primaryColor,
+                      ),
+                    ),
+                    onPressed: () {
+                      controller.changeTheme();
+                    },
                   ),
                 ),
-                onPressed: () {
-                  controller.changeTheme();
-                },
-              ),
-            ),
-            //
+                //
 
-            // Languages Icon
-            const Positioned(
-              top: 5,
-              left: 5,
-              child: LanguageMenu(),
-            ),
-            //
+                // Languages Icon
+                const Positioned(
+                  top: 5,
+                  left: 5,
+                  child: LanguageMenu(),
+                ),
+                //
 
-            //
-            Positioned(
-              left: 0,
-              right: 0,
-              top: controller.height / 2 - 350,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Container(
-                    height: 350,
-                    width: 350,
-                    decoration: BoxDecoration(
-                        color: const Color(0xFFe6ebf2),
-                        shape: BoxShape.circle,
-                        boxShadow: [
-                          BoxShadow(
-                              offset: const Offset(-3, -3),
-                              blurRadius: 3.0,
-                              color: Colors.white.withOpacity(.7)),
-                          BoxShadow(
-                              offset: const Offset(3, 3),
-                              blurRadius: 3.0,
-                              color: Colors.black.withOpacity(.15))
-                        ]),
-                    child: Container(
-                      width: 220,
-                      height: 220,
-                      decoration: const BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Color(0xFFe6ebf2),
+                //  Column => Logo + AnimatedButton
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    // El Nady Lab Text
+                    FadeAnimation(
+                      child: LocaleKeys.nadyLab.translation(
+                        style: TextStyle(
+                          fontSize: 35,
+                          color: Theme.of(context).primaryColor,
+                        ),
                       ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(5.0),
+                    ),
+
+                    // Shady Text
+                    FadeAnimation(
+                      child: LocaleKeys.shady.translation(
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: Theme.of(context).secondaryHeaderColor,
+                        ),
+                      ),
+                    ),
+
+                    // Logo Container
+                    FadeAnimation(
+                      delay: 2,
+                      child: Container(
+                        height: 350,
+                        width: 350,
+                        decoration: BoxDecoration(
+                            color: Theme.of(context).colorScheme.background,
+                            shape: BoxShape.circle,
+                            boxShadow: [
+                              BoxShadow(
+                                  offset: const Offset(-3, -3),
+                                  blurRadius: 3.0,
+                                  color: Theme.of(context)
+                                      .colorScheme
+                                      .surface
+                                      .withOpacity(.7)),
+                              BoxShadow(
+                                  offset: const Offset(3, 3),
+                                  blurRadius: 3.0,
+                                  color: Theme.of(context)
+                                      .colorScheme
+                                      .onBackground
+                                      .withOpacity(.15))
+                            ]),
                         child: Container(
                           decoration: BoxDecoration(
-                              color: const Color(0xFFe6ebf2),
-                              shape: BoxShape.circle,
-                              boxShadow: [
-                                BoxShadow(
-                                    offset: const Offset(-2, -2),
-                                    blurRadius: 2.0,
-                                    color: Colors.black.withOpacity(.3)),
-                                BoxShadow(
-                                    offset: const Offset(2, 2),
-                                    blurRadius: 2.0,
-                                    color: Colors.white.withOpacity(.7)),
-                              ]),
+                            shape: BoxShape.circle,
+                            color: Theme.of(context).colorScheme.background,
+                          ),
                           child: Padding(
-                            padding: const EdgeInsets.all(10.0),
+                            padding: const EdgeInsets.all(5.0),
                             child: Container(
-                              decoration: const BoxDecoration(
-                                  color: Color(0xFFe6ebf2),
-                                  shape: BoxShape.circle),
+                              decoration: BoxDecoration(
+                                  color:
+                                      Theme.of(context).colorScheme.background,
+                                  shape: BoxShape.circle,
+                                  boxShadow: [
+                                    BoxShadow(
+                                        offset: const Offset(-2, -2),
+                                        blurRadius: 2.0,
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .onBackground
+                                            .withOpacity(.3)),
+                                    BoxShadow(
+                                        offset: const Offset(2, 2),
+                                        blurRadius: 2.0,
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .surface
+                                            .withOpacity(.7)),
+                                  ]),
                               child: Padding(
-                                padding: const EdgeInsets.all(3.0),
+                                padding: const EdgeInsets.all(10.0),
                                 child: Container(
                                   decoration: BoxDecoration(
-                                      color: const Color(0xFFFFFFFF),
-                                      shape: BoxShape.circle,
-                                      boxShadow: [
-                                        BoxShadow(
-                                            offset: const Offset(-2, -2),
-                                            blurRadius: 2.0,
-                                            color:
-                                                Colors.black.withOpacity(.3)),
-                                        BoxShadow(
-                                            offset: const Offset(2, 2),
-                                            blurRadius: 2.0,
-                                            color:
-                                                Colors.white.withOpacity(.7)),
-                                      ]),
-                                  child: Center(
-                                    child: logoSVG(),
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .background,
+                                      shape: BoxShape.circle),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(3.0),
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                          color: Theme.of(context)
+                                              .colorScheme
+                                              .surface,
+                                          shape: BoxShape.circle,
+                                          boxShadow: [
+                                            BoxShadow(
+                                                offset: const Offset(-2, -2),
+                                                blurRadius: 2.0,
+                                                color: Theme.of(context)
+                                                    .colorScheme
+                                                    .onBackground
+                                                    .withOpacity(.3)),
+                                            BoxShadow(
+                                                offset: const Offset(2, 2),
+                                                blurRadius: 2.0,
+                                                color: Theme.of(context)
+                                                    .colorScheme
+                                                    .surface
+                                                    .withOpacity(.7)),
+                                          ]),
+                                      child: Center(
+                                        child: logoSVG(
+                                          svg: controller.logo,
+                                        ),
+                                      ),
+                                    ),
                                   ),
                                 ),
                               ),
@@ -127,25 +174,17 @@ class SplashPage extends GetWidget<AppController> {
                         ),
                       ),
                     ),
-                  ),
-                  const SizedBox(
-                    height: 40,
-                  ),
-                  const FadeAnimation(
-                    delay: 1.6,
-                    child: AnimatedButton(),
-                  ),
-                  FadeAnimation(
-                    child: LocaleKeys.wellcome.translation(),
-                  ),
-                ],
-              ),
+
+                    // Animated Button
+                    const FadeAnimation(
+                      delay: 3,
+                      child: AnimatedButton(),
+                    ),
+                  ],
+                ),
+              ],
             ),
-            const SizedBox(
-              height: 30.0,
-            ),
-            //
-          ],
+          ),
         ),
       ),
     );

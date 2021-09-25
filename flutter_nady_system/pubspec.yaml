@@ -99,9 +99,12 @@ flutter:
           weight: 600
         - asset: assets/fonts/Reem_Kufi/ReemKufi-Bold.ttf
           weight: 700
-    - family: nunito
+    - family: Nunito
       fonts:
         - asset: assets/fonts/Nunito/Nunito-Regular.ttf
+    - family: NotoColorEmoji
+      fonts:
+        - asset: assets/fonts/NotoColorEmoji/NotoColorEmoji.ttf
   #   - family: Abril_Fatface
   #     fonts:
   #       - asset: assets/fonts/Abril_Fatface/Abril_Fatface-Regular.ttf

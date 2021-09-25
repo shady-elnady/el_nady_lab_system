@@ -1,27 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-const String svg = "assets/svg";
-const String images = "assets/images";
-const String icons = "assets/icons";
-const String logs = "assets/logs";
+import 'global.dart';
 
 BoxDecoration boxImage({
-  String image = "$images/one.png",
+  String? image,
 }) =>
     BoxDecoration(
       image: DecorationImage(
-        image: AssetImage(image),
+        image: AssetImage(image ?? ImagePath().one),
         fit: BoxFit.cover,
       ),
     );
 
+//
 SvgPicture logoSVG({
-  String svg = "$logs/logo_light.svg",
+  String? svg,
   width = 150,
 }) =>
     SvgPicture.asset(
-      svg,
+      svg ?? ImagePath().logoLight,
       width: width,
       placeholderBuilder: (BuildContext context) =>
           const CircularProgressIndicator(),

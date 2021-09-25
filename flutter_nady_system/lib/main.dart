@@ -5,9 +5,10 @@ import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:get/get.dart';
 
+import 'views/index.dart';
 import 'app/index.dart';
 import 'routes/app_pages.dart';
-import 'themes/index.dart';
+import 'themes/app_theme.dart';
 import 'tools/translation.dart';
 
 void main() async {
@@ -45,7 +46,8 @@ void main() async {
       debugShowCheckedModeBanner: false,
       title: "El Nady System",
       translations: Translation(),
-      theme: appThemeData,
+      themeMode: AppController().themeMode,
+      theme: AppController().theme,
       darkTheme: darkThemeData,
       locale: AppController().locale,
       fallbackLocale: const Locale('en', 'US'),
@@ -54,6 +56,7 @@ void main() async {
       initialRoute: Routes.splashPage,
       getPages: AppPages.pages,
       unknownRoute: AppPages.notFoundRoute,
+      home: const SplashPage(),
     ),
   );
 }

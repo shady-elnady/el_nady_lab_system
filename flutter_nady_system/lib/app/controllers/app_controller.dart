@@ -2,6 +2,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../themes/app_theme.dart';
+import '../../views/pages/utils/index.dart';
+
 class AppController extends GetxController {
   // Width - Height
   final RxDouble _width = Get.width.obs;
@@ -15,7 +18,7 @@ class AppController extends GetxController {
   }
 
   // Locale App
-  final Rx<Locale> _locale = const Locale('en', 'US').obs;
+  final Rx<Locale> _locale = english.obs;
   Locale get locale => _locale.value;
   set locale(Locale newLocale) {
     Get.updateLocale(newLocale);
@@ -24,14 +27,18 @@ class AppController extends GetxController {
 
   // Theme
   final RxBool _darkTheme = false.obs;
+  ThemeMode get themeMode =>
+      _darkTheme.value ? ThemeMode.dark : ThemeMode.light;
   bool get darkTheme => _darkTheme.value;
-  ThemeData get theme =>
-      _darkTheme.value ? ThemeData.dark() : ThemeData.light();
+  ThemeData get theme => _darkTheme.value ? darkThemeData : lightThemeData;
   void changeTheme() {
     _darkTheme.toggle();
-    return Get.changeTheme(
-        _darkTheme.value ? ThemeData.dark() : ThemeData.light());
+    return Get.changeTheme(_darkTheme.value ? darkThemeData : lightThemeData);
   }
+
+  // Logo
+  String get logo =>
+      _darkTheme.value ? ImagePath().logoDark : ImagePath().logoLight;
 
   @override
   void onInit() {
