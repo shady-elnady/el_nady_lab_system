@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter/gestures.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
@@ -52,6 +53,7 @@ void main() async {
       locale: AppController().locale,
       fallbackLocale: const Locale('en', 'US'),
       defaultTransition: Transition.fade,
+      scrollBehavior: MyCustomScrollBehavior(),
       initialBinding: AppBinding(),
       initialRoute: Routes.splashPage,
       getPages: AppPages.pages,
@@ -59,4 +61,14 @@ void main() async {
       home: const SplashPage(),
     ),
   );
+}
+
+class MyCustomScrollBehavior extends MaterialScrollBehavior {
+  // Override behavior methods and getters like dragDevices
+  @override
+  Set<PointerDeviceKind> get dragDevices => {
+        PointerDeviceKind.touch,
+        PointerDeviceKind.mouse,
+        // etc.
+      };
 }

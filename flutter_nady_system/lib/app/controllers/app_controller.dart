@@ -38,7 +38,7 @@ class AppController extends GetxController {
 
   // Logo
   String get logo =>
-      _darkTheme.value ? ImagePath().logoDark : ImagePath().logoLight;
+      _darkTheme.value ? ImagePath().logoLight : ImagePath().logoDark;
 
   @override
   void onInit() {

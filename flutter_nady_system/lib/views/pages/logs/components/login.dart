@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_nady_system/app/index.dart';
-import 'package:flutter_nady_system/routes/app_pages.dart';
 import 'package:get/get.dart';
 
+import 'package:flutter_nady_system/app/index.dart';
+import 'package:flutter_nady_system/routes/app_pages.dart';
+import 'package:flutter_nady_system/views/pages/utils/global.dart';
 import 'action_button.dart';
 
 class LogInComponent extends GetWidget<AuthController> {
@@ -18,15 +19,14 @@ class LogInComponent extends GetWidget<AuthController> {
     Size size = MediaQuery.of(context).size;
 
     return Padding(
-      padding: EdgeInsets.all(
-        size.height > 770
-            ? 64
-            : size.height > 670
-                ? 32
-                : 32,
+      padding: EdgeInsets.only(
+        top: 50,
+        left: size.height > 770 ? 64 : 32,
+        right: size.height > 770 ? 64 : 32,
       ),
       child: Center(
         child: Card(
+          color: Theme.of(context).canvasColor,
           elevation: 4,
           shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(
@@ -35,7 +35,7 @@ class LogInComponent extends GetWidget<AuthController> {
             // side: BorderSide(color: Global.kPrimaryColor),
           ),
           child: AnimatedContainer(
-            duration: const Duration(milliseconds: 200),
+            duration: duration,
             height: size.height *
                 (size.height > 770
                     ? 0.7
@@ -104,9 +104,9 @@ class LogInComponent extends GetWidget<AuthController> {
                       const SizedBox(
                         height: 60,
                       ),
-                      actionButton(
-                        "Log In",
-                        fun: () => Get.toNamed(Routes.neumorphicEx),
+                      ActionButton(
+                        text: "Log In",
+                        fun: () => Get.toNamed(Routes.homePage),
                         //fun: () => controller.signInWithFacebook(),
                       ),
                       const SizedBox(

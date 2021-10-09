@@ -1,123 +1,72 @@
-class User {
-  User({
-    required this.id,
-    required this.name,
-    required this.username,
-    required this.email,
-    required this.address,
-    required this.phone,
-    required this.website,
-    required this.company,
+class UserModel {
+  final String? name, urlImage, location, bio;
+  final int? countFollowers, countFollowing, countPosts;
+  final List<String>? urlPhotos;
+  bool isFollowing;
+
+  UserModel({
+    this.name,
+    this.urlImage,
+    this.location,
+    this.bio,
+    this.countFollowers,
+    this.countFollowing,
+    this.countPosts,
+    this.urlPhotos,
+    this.isFollowing = false,
   });
-  late final int id;
-  late final String name;
-  late final String username;
-  late final String email;
-  late final Address address;
-  late final String phone;
-  late final String website;
-  late final Company company;
-
-  User.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
-    name = json['name'];
-    username = json['username'];
-    email = json['email'];
-    address = Address.fromJson(json['address']);
-    phone = json['phone'];
-    website = json['website'];
-    company = Company.fromJson(json['company']);
-  }
-
-  Map<String, dynamic> toJson() {
-    final _data = <String, dynamic>{};
-    _data['id'] = id;
-    _data['name'] = name;
-    _data['username'] = username;
-    _data['email'] = email;
-    _data['address'] = address.toJson();
-    _data['phone'] = phone;
-    _data['website'] = website;
-    _data['company'] = company.toJson();
-    return _data;
-  }
 }
 
-class Address {
-  Address({
-    required this.street,
-    required this.suite,
-    required this.city,
-    required this.zipcode,
-    required this.geo,
-  });
-  late final String street;
-  late final String suite;
-  late final String city;
-  late final String zipcode;
-  late final Geo geo;
-
-  Address.fromJson(Map<String, dynamic> json) {
-    street = json['street'];
-    suite = json['suite'];
-    city = json['city'];
-    zipcode = json['zipcode'];
-    geo = Geo.fromJson(json['geo']);
-  }
-
-  Map<String, dynamic> toJson() {
-    final _data = <String, dynamic>{};
-    _data['street'] = street;
-    _data['suite'] = suite;
-    _data['city'] = city;
-    _data['zipcode'] = zipcode;
-    _data['geo'] = geo.toJson();
-    return _data;
-  }
-}
-
-class Geo {
-  Geo({
-    required this.lat,
-    required this.lng,
-  });
-  late final String lat;
-  late final String lng;
-
-  Geo.fromJson(Map<String, dynamic> json) {
-    lat = json['lat'];
-    lng = json['lng'];
-  }
-
-  Map<String, dynamic> toJson() {
-    final _data = <String, dynamic>{};
-    _data['lat'] = lat;
-    _data['lng'] = lng;
-    return _data;
-  }
-}
-
-class Company {
-  Company({
-    required this.name,
-    required this.catchPhrase,
-    required this.bs,
-  });
-  late final String name;
-  late final String catchPhrase;
-  late final String bs;
-
-  Company.fromJson(Map<String, dynamic> json) {
-    name = json['name'];
-    catchPhrase = json['catchPhrase'];
-    bs = json['bs'];
-  }
-
-  Map<String, dynamic> toJson() {
-    final _data = <String, dynamic>{};
-    _data['name'] = name;
-    _data['catchPhrase'] = catchPhrase;
-    _data['bs'] = bs;
-    return _data;
-  }
-}
+final users = <UserModel>[
+  UserModel(
+    name: "shady",
+    urlImage:
+        "https://i2.wp.com/southpawers.com/wp-content/uploads/2021/05/ai-eminem-the-real-slim-shady-scaled.jpg?fit=2560%2C1381&ssl=1",
+    location: "Location",
+    bio: "shady shady shady shady shady",
+    countFollowers: 5,
+    countFollowing: 5,
+    countPosts: 5,
+    urlPhotos: [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSY1OafajanoVBmIpAeNRzMlkxeA73Ox2vmNA&usqp=CAU",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4_AcqFIlcVOjov4_u1jimkzYNzs9wZ3Rgeg&usqp=CAU",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyk-rAWff8es4lJvIa_J3mIuveLfNztGCpLg&usqp=CAU",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSY1OafajanoVBmIpAeNRzMlkxeA73Ox2vmNA&usqp=CAU",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaOINoeeCqir7-nCJQkVGpF5ykYME7q0WPWg&usqp=CAU",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyk-rAWff8es4lJvIa_J3mIuveLfNztGCpLg&usqp=CAU",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSY1OafajanoVBmIpAeNRzMlkxeA73Ox2vmNA&usqp=CAU",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4_AcqFIlcVOjov4_u1jimkzYNzs9wZ3Rgeg&usqp=CAU",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyk-rAWff8es4lJvIa_J3mIuveLfNztGCpLg&usqp=CAU",
+    ],
+  ),
+  UserModel(
+    name: "ahmed",
+    urlImage:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0NcozOmb2ojsxW9CPrhD8hVNAElZALTD6QA&usqp=CAU",
+    location: "Location",
+    bio: "ahmed ahmed ahmed ahmed ahmed",
+    countFollowers: 5,
+    countFollowing: 5,
+    countPosts: 5,
+    urlPhotos: [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4_AcqFIlcVOjov4_u1jimkzYNzs9wZ3Rgeg&usqp=CAU",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4_AcqFIlcVOjov4_u1jimkzYNzs9wZ3Rgeg&usqp=CAU",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4_AcqFIlcVOjov4_u1jimkzYNzs9wZ3Rgeg&usqp=CAU",
+    ],
+  ),
+  UserModel(
+    name: "mohammed",
+    urlImage:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJ6jMNGREi5Y3OGWKTry1zliC7gTxicSMg0w&usqp=CAU",
+    location: "Location",
+    bio: "mohammed mohammed mohammed mohammed mohammed",
+    countFollowers: 5,
+    countFollowing: 5,
+    countPosts: 5,
+    urlPhotos: [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8APYlx1Sv7xCCij298b5GetQ5Vr4F3H4pGA&usqp=CAU",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8APYlx1Sv7xCCij298b5GetQ5Vr4F3H4pGA&usqp=CAU",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8APYlx1Sv7xCCij298b5GetQ5Vr4F3H4pGA&usqp=CAU",
+    ],
+  ),
+];

@@ -49,7 +49,7 @@ class Locales {
     'title': 'Title',
     'wellcome': 'WellCome',
     'nadyLab': 'El Nady Lab',
-    'shady': 'Dr. / Shady El Nady',
+    'shady': 'Dr./ Shady El Nady',
   };
   static const ar_AR = {
     'sign_In': 'دخول',
@@ -87,6 +87,6 @@ class Locales {
     'title': 'Title',
     'wellcome': 'Bienvenu',
     'nadyLab': 'Laboratoire El Nady',
-    'shady': 'Dr. / Shady El Nady',
+    'shady': 'Dr./ Shady El Nady',
   };
 }

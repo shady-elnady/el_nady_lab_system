@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../utils/index.dart';
+
 class AnimatLanguage extends StatefulWidget {
   final Function? fun;
   const AnimatLanguage({
@@ -18,10 +20,9 @@ class _AnimatLanguageState extends State<AnimatLanguage>
   @override
   void initState() {
     super.initState();
-    iconController = AnimationController(
-        vsync: this, duration: const Duration(milliseconds: 500));
+    iconController = AnimationController(vsync: this, duration: duration);
     iconController.forward().then((value) async {
-      await Future.delayed(const Duration(microseconds: 500));
+      await Future.delayed(duration);
       iconController.reverse();
     });
   }

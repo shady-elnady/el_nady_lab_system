@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:fluttericon/font_awesome_icons.dart';
 import 'package:get/get.dart';
 
 import '../../app/index.dart';
+import 'components/logo_container.dart';
 import 'utils/index.dart';
 import 'widgets/index.dart';
 
@@ -24,25 +26,28 @@ class SplashPage extends GetWidget<AppController> {
             ),
             child: Stack(
               children: <Widget>[
-                // Theme Icon
+                // Change Theme Icon
                 Positioned(
                   top: 5,
                   right: 5,
-                  child: IconButton(
-                    icon: Obx(
-                      () => Icon(
-                        controller.darkTheme ? Icons.tungsten : Icons.light,
-                        color: Theme.of(context).primaryColor,
-                      ),
-                    ),
-                    onPressed: () {
+                  child: NeumorphicDesign(
+                    height1: 55,
+                    width1: 55,
+                    color: Theme.of(context).canvasColor,
+                    offsetB: const Offset(-2, -2),
+                    offsetW: const Offset(2, 2),
+                    bLevel: 5.0,
+                    iconData: controller.darkTheme
+                        ? FontAwesome.lightbulb
+                        : Icons.light,
+                    iconSize: 30.0,
+                    fun: () {
                       controller.changeTheme();
                     },
                   ),
                 ),
-                //
 
-                // Languages Icon
+                // Change Languages Icon
                 const Positioned(
                   top: 5,
                   left: 5,
@@ -50,7 +55,7 @@ class SplashPage extends GetWidget<AppController> {
                 ),
                 //
 
-                //  Column => Logo + AnimatedButton
+                //  Text
                 Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -76,103 +81,9 @@ class SplashPage extends GetWidget<AppController> {
                     ),
 
                     // Logo Container
-                    FadeAnimation(
+                    const FadeAnimation(
                       delay: 2,
-                      child: Container(
-                        height: 350,
-                        width: 350,
-                        decoration: BoxDecoration(
-                            color: Theme.of(context).colorScheme.background,
-                            shape: BoxShape.circle,
-                            boxShadow: [
-                              BoxShadow(
-                                  offset: const Offset(-3, -3),
-                                  blurRadius: 3.0,
-                                  color: Theme.of(context)
-                                      .colorScheme
-                                      .surface
-                                      .withOpacity(.7)),
-                              BoxShadow(
-                                  offset: const Offset(3, 3),
-                                  blurRadius: 3.0,
-                                  color: Theme.of(context)
-                                      .colorScheme
-                                      .onBackground
-                                      .withOpacity(.15))
-                            ]),
-                        child: Container(
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: Theme.of(context).colorScheme.background,
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(5.0),
-                            child: Container(
-                              decoration: BoxDecoration(
-                                  color:
-                                      Theme.of(context).colorScheme.background,
-                                  shape: BoxShape.circle,
-                                  boxShadow: [
-                                    BoxShadow(
-                                        offset: const Offset(-2, -2),
-                                        blurRadius: 2.0,
-                                        color: Theme.of(context)
-                                            .colorScheme
-                                            .onBackground
-                                            .withOpacity(.3)),
-                                    BoxShadow(
-                                        offset: const Offset(2, 2),
-                                        blurRadius: 2.0,
-                                        color: Theme.of(context)
-                                            .colorScheme
-                                            .surface
-                                            .withOpacity(.7)),
-                                  ]),
-                              child: Padding(
-                                padding: const EdgeInsets.all(10.0),
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                      color: Theme.of(context)
-                                          .colorScheme
-                                          .background,
-                                      shape: BoxShape.circle),
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(3.0),
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                          color: Theme.of(context)
-                                              .colorScheme
-                                              .surface,
-                                          shape: BoxShape.circle,
-                                          boxShadow: [
-                                            BoxShadow(
-                                                offset: const Offset(-2, -2),
-                                                blurRadius: 2.0,
-                                                color: Theme.of(context)
-                                                    .colorScheme
-                                                    .onBackground
-                                                    .withOpacity(.3)),
-                                            BoxShadow(
-                                                offset: const Offset(2, 2),
-                                                blurRadius: 2.0,
-                                                color: Theme.of(context)
-                                                    .colorScheme
-                                                    .surface
-                                                    .withOpacity(.7)),
-                                          ]),
-                                      child: Center(
-                                        child: logoSVG(
-                                          svg: controller.logo,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
+                      child: LogoContainer(),
                     ),
 
                     // Animated Button

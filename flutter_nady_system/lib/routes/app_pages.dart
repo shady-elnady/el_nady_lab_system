@@ -34,7 +34,17 @@ class AppPages {
     GetPage(
       name: Routes.neumorphicEx,
       page: () => const NeumorphicEx(),
-      title: 'HomePage',
+      title: 'neumorphicEx',
+    ),
+    GetPage(
+      name: Routes.descoveryView,
+      page: () => const DescoveryView(),
+      title: 'DescoveryView',
+    ),
+    GetPage(
+      name: Routes.logoPaint,
+      page: () => const LogoPaint(),
+      title: 'LogoPaint',
     ),
   ];
 }

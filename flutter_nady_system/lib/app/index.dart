@@ -6,9 +6,8 @@ export 'controllers/app_controller.dart';
 export 'binding/app_binding.dart';
 export 'binding/auth_binding.dart';
 
-
 // Models
-
+export 'models/user_model.dart';
 
 
 

@@ -24,3 +24,5 @@ class ImagePath {
 const Locale english = Locale('en', 'US');
 const Locale arabic = Locale('ar', 'AR');
 const Locale frensh = Locale('fr', 'FR');
+
+const Duration duration = Duration(microseconds: 1000);

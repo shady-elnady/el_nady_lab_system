@@ -5,6 +5,8 @@ import 'package:flutter/animation.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/scheduler.dart' show timeDilation;
 
+import '../components/logo_container.dart';
+import '../utils/global.dart';
 import 'components/login.dart';
 import 'components/signup.dart';
 
@@ -63,6 +65,7 @@ class LogPageState extends State<LogPage> with TickerProviderStateMixin {
                 ),
               ),
             ),
+            //
             Align(
               alignment: Alignment.centerLeft,
               child: Padding(
@@ -90,6 +93,7 @@ class LogPageState extends State<LogPage> with TickerProviderStateMixin {
                 ),
               ),
             ),
+            //
             Align(
               alignment: Alignment.bottomLeft,
               child: Padding(
@@ -126,6 +130,7 @@ class LogPageState extends State<LogPage> with TickerProviderStateMixin {
                 ),
               ),
             ),
+            //
             Align(
               alignment: Alignment.bottomRight,
               child: Padding(
@@ -152,9 +157,11 @@ class LogPageState extends State<LogPage> with TickerProviderStateMixin {
                 ),
               ),
             ),
+
+            //
             AnimatedSwitcher(
-              duration: const Duration(milliseconds: 700),
-              reverseDuration: const Duration(milliseconds: 700),
+              duration: duration,
+              reverseDuration: duration,
               transitionBuilder: (Widget widget, Animation<double> animation) =>
                   ScaleTransition(child: widget, scale: animation),
               child: selectedOption == Option.logIn
@@ -174,6 +181,12 @@ class LogPageState extends State<LogPage> with TickerProviderStateMixin {
                         });
                       },
                     ),
+            ),
+
+            //
+            Positioned(
+              bottom: size.height * 0.72,
+              child: const LogoContainer(width: 200),
             ),
           ],
         ),

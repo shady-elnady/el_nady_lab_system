@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_nady_system/views/pages/widgets/index.dart';
 import 'package:get/get.dart';
 
 import '../utils/index.dart';
@@ -10,11 +11,21 @@ class LanguageMenu extends GetWidget<AppController> {
   @override
   Widget build(BuildContext context) {
     return PopupMenuButton<Locale>(
-      color: Theme.of(context).canvasColor,
-      child: Icon(
-        Icons.language,
-        color: Theme.of(context).primaryColor,
+      color: Theme.of(context).canvasColor.withOpacity(0),
+      child: NeumorphicDesign(
+        height1: 55,
+        width1: 55,
+        color: Theme.of(context).canvasColor,
+        offsetB: const Offset(-2, -2),
+        offsetW: const Offset(2, 2),
+        bLevel: 5.0,
+        iconData: Icons.language,
+        iconSize: 30.0,
       ),
+      // Icon(
+      //   Icons.language,
+      //   color: Theme.of(context).primaryColor,
+      // ),
       itemBuilder: (context) => [
         ...languages.map(
           (lang) => PopupMenuItem<Locale>(
@@ -36,9 +47,9 @@ class LanguageMenu extends GetWidget<AppController> {
             ),
           ),
         ),
-        const PopupMenuDivider(
-          height: 10,
-        ),
+        // const PopupMenuDivider(
+        //   height: 10,
+        // ),
       ],
       onSelected: (i) => controller.locale = i,
     );
