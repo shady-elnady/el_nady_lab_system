@@ -1,8 +1,10 @@
 // ignore_for_file: avoid_print
 
+import 'package:flutter/material.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:github_sign_in/github_sign_in.dart';
 import 'package:get/get.dart';
 
 class AuthController extends GetxController {
@@ -20,11 +22,21 @@ class AuthController extends GetxController {
   void onInit() {
     super.onInit();
     _user.bindStream(_auth.authStateChanges());
-    FirebaseAuth.instance.authStateChanges().listen((User? user) {
+    _auth.authStateChanges().listen((User? user) {
       if (user == null) {
-        print('User is currently signed out!');
+        print("""
+            ==============
+            User is Signed Out!
+            =========================
+          """);
       } else {
-        print('User is signed in!');
+        user = _user.value;
+        print("""
+            ==============
+            User is Signed In!
+            User : $_user
+            =========================
+          """);
       }
     });
   }
@@ -37,6 +49,10 @@ class AuthController extends GetxController {
 
   @override
   void onClose() {}
+
+  Future<void> signInAnonymous() async {
+    await FirebaseAuth.instance.signInAnonymously();
+  }
 
   Future<void> signInWithGoogle() async {
     GoogleSignInAccount? gooleAcount = await _googleSignIn.signIn();
@@ -113,7 +129,10 @@ class AuthController extends GetxController {
     }
   }
 
-  void signUpWithEmailAndPassword(String email, String password) async {
+  void signUpWithEmailAndPassword({
+    String email = "shady@gmail.com",
+    String password = "123456789",
+  }) async {
     try {
       await _auth.createUserWithEmailAndPassword(
         email: email,
@@ -124,6 +143,38 @@ class AuthController extends GetxController {
       } else if (e.code == 'email-already-in-use') {
         print('The account already exists for that email.');
       }
+    }
+  }
+
+  //GitHube
+
+  Future<void> signInWithGitHub(BuildContext context) async {
+    // Create a GitHubSignIn instance
+    final GitHubSignIn gitHubSignIn = GitHubSignIn(
+        clientId: "9d3e9422deefa451f040",
+        clientSecret: "34f042117ee9d1d9c28962f928dda4f6098ff189",
+        redirectUrl:
+            'https://flutter-lady-system.firebaseapp.com/__/auth/handler');
+
+    // Trigger the sign-in flow
+    final result = await gitHubSignIn.signIn(context);
+
+    switch (result.status) {
+      case GitHubSignInResultStatus.ok:
+
+        // Create a credential from the access token
+        final githubAuthCredential =
+            GithubAuthProvider.credential(result.token!);
+
+        // Once signed in, return the UserCredential
+        await _auth.signInWithCredential(githubAuthCredential);
+        print(result.token);
+        break;
+
+      case GitHubSignInResultStatus.cancelled:
+      case GitHubSignInResultStatus.failed:
+        print(result.errorMessage);
+        break;
     }
   }
 }

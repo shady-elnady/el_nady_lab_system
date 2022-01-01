@@ -24,7 +24,7 @@ void main() async {
     const SystemUiOverlayStyle(statusBarColor: Colors.transparent),
   );
 
-  if (!GetPlatform.isDesktop) await Firebase.initializeApp();
+  if (!GetPlatform.isWindows) await Firebase.initializeApp();
   // check if is running on Web
   if (kIsWeb) {
     // initialiaze the facebook javascript SDK

@@ -43,7 +43,6 @@
 		</array>
 		<key>UIViewControllerBasedStatusBarAppearance</key>
 		<false/>
-
 		<!-- Put me in the [my_project]/ios/Runner/Info.plist file -->
 		<!-- Google Sign-in Section -->
 		<key>CFBundleURLTypes</key>
@@ -60,7 +59,6 @@
 			</dict>
 		</array>
 		<!-- End of the Google Sign-in Section -->
-
 		<key>CFBundleURLTypes</key>
 		<array>
 			<dict>
@@ -76,10 +74,8 @@
 		<string>2ef96422f33a7ecfcacfff67821b0a68</string>
 		<key>FacebookDisplayName</key>
 		<string>el_nady_lab_system</string>
-
 		<!-- To use any of the Facebook dialogs (e.g., Login, Share, 
 		App Invites, etc.) that can perform an app switch to Facebook apps -->
-
 		<key>LSApplicationQueriesSchemes</key>
 		<array>
 			<string>fbapi</string>
@@ -98,6 +94,5 @@
 			<string>fbauth2</string>
 			<string>fbshareextension</string>
 		</array>
-
 	</dict>
 </plist>
